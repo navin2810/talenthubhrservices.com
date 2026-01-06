@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TalentHub HR Services | BFSI Recruitment</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link rel="icon" href="logo croped.png" type="image/x-icon"  >
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Darker, richer version of your logo palette */
+      --navy: #081327;
+      --navy-soft: #152750;
+      --pink: #d63467;
+      --pink-soft: #ff6a9a;
+      --light-bg: #f8f3f7;
+      --text-dark: #15131f;
+      --text-muted: #6f6a7a;
+      --border-soft: #d8c9dd;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      color: var(--text-dark);
+      background: #f3f4f8;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* Buttons */
+
+    .btn-main {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 26px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      color: #fff;
+      background: linear-gradient(135deg, var(--pink), var(--navy-soft));
+      box-shadow: 0 10px 25px rgba(9, 16, 43, 0.45);
+      overflow: hidden;
+      transition: transform 0.15s ease, box-shadow 0.2s ease;
+    }
+    .btn-main::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 0 0, rgba(255,255,255,0.45), transparent 55%);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+    .btn-main span.icon {
+      transition: transform 0.2s ease;
+      font-size: 1.1rem;
+    }
+    .btn-main:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 40px rgba(8, 19, 57, 0.7);
+    }
+    .btn-main:hover::after { opacity: 1; }
+    .btn-main:hover span.icon { transform: translateX(3px); }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(8,19,39,0.35);
+      color: var(--navy);
+      font-size: 0.85rem;
+      gap: 6px;
+      background: rgba(255,255,255,0.92);
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+    }
+    .btn-ghost:hover {
+      background: #f7dbe7;
+      border-color: var(--pink);
+      transform: translateY(-1px);
+    }
+
+    /* Sections */
+
+    .section-shell {
+      padding: 80px 7% 90px;
+      position: relative;
+      background: linear-gradient(135deg, #fdfbff 0, #f7f0f7 40%, #eef2ff 100%);
+    }
+    .section-shell.alt {
+      background: linear-gradient(135deg, #eef2ff 0, #fbf4fb 60%, #f6f0f8 100%);
+    }
+    .section-shell.hero-shell {
+      background: radial-gradient(circle at top left, #ff6a9a 0, #f8f0f5 30%, #e0e6ff 70%, #f7f9ff 100%);
+    }
+
+    .inner { max-width: 1120px; margin: 0 auto; }
+
+    .reveal { opacity: 0; transform: translateY(22px); transition: all 0.7s ease-out; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* Header */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(247,248,252,0.96);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid #d6d9ea;
+}
+
+.nav-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 8px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+/* Logo + title block */
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-logo-link img {
+  height: 40px;            /* controls logo size */
+  width: auto;
+  display: block;
+}
+
+.nav-title-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.nav-company {
+  font-size: 0.9rem;
+  letter-spacing: 0.16em;
+  font-weight: 600;
+  color: var(--navy);
+  text-transform: uppercase;
+}
+
+.nav-tagline {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+/* Menu */
+
+.nav-links ul {
+  display: flex;
+  list-style: none;
+  gap: 18px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.nav-links a {
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--pink), var(--navy-soft));
+  transition: width 0.24s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Existing ghost button still used for small CTA */
+
+.nav-cta {
+  margin-left: 8px;
+}
+
+/* Mobile: hide links and only show CTA */
+
+@media (max-width: 900px) {
+  .nav-links ul { display: none; }
+  .nav-cta { display: inline-flex; }
+}
+
+
+    .nav-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 18px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    nav a {
+      position: relative;
+      padding-bottom: 4px;
+    }
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--pink), var(--navy-soft));
+      transition: width 0.24s ease;
+    }
+    nav a:hover::after { width: 100%; }
+    .nav-cta { display: none; }
+
+    /* Hero */
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 42px;
+      align-items: center;
+      padding: 72px 0 30px;
+    }
+    .eyebrow {
+      font-size: 0.78rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--navy-soft);
+      margin-bottom: 8px;
+    }
+    .hero h1 {
+      font-size: 2.45rem;
+      letter-spacing: 0.02em;
+      margin-bottom: 16px;
+      color: var(--navy);
+    }
+    .hero p {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      max-width: 540px;
+      margin-bottom: 22px;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 26px;
+      font-size: 0.78rem;
+    }
+    .hero-meta span {
+      border-radius: 999px;
+      padding: 6px 11px;
+      border: 1px solid #e4b3c8;
+      background: #fbe3ee;
+      color: #7a2946;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+    .hero-card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 20px;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 16px 40px rgba(133, 107, 135, 0.45);
+    }
+    .hero-card h3 { font-size: 1.02rem; margin-bottom: 6px; color: var(--navy); }
+    .hero-card p { font-size: 0.83rem; color: var(--text-muted); margin-bottom: 10px; }
+    .hero-card ul { list-style: none; font-size: 0.8rem; color: var(--text-dark); }
+    .hero-card li + li { margin-top: 6px; }
+    .hero-card li::before {
+      content: "▹";
+      color: var(--pink);
+      margin-right: 7px;
+      font-size: 0.9rem;
+    }
+
+    /* Section headings */
+
+    .section-title {
+      text-align: center;
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+      color: var(--navy);
+    }
+    .section-sub {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 640px;
+      margin: 0 auto 34px;
+    }
+
+    /* Content layouts */
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 26px;
+      align-items: flex-start;
+    }
+    .strip {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 18px 18px 16px;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 10px 26px rgba(153, 130, 152, 0.32);
+    }
+    .text-muted {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 18px;
+    }
+    .card {
+      border-radius: 14px;
+      padding: 18px 18px 16px;
+      border: 1px solid var(--border-soft);
+      background: #ffffff;
+      box-shadow: 0 12px 30px rgba(148, 123, 145, 0.32);
+      transform: translateY(0);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 38px rgba(116, 90, 124, 0.55);
+      border-color: var(--pink);
+    }
+    .card h3 { font-size: 0.98rem; margin-bottom: 6px; color: var(--navy); }
+    .card p { font-size: 0.84rem; color: var(--text-muted); }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.8rem;
+      margin-top: 6px;
+    }
+    .tag {
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid #e4b3c8;
+      background: #fbe3ee;
+      color: #7a2946;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 18px;
+    }
+    .step {
+      background: #ffffff;
+      border-radius: 14px;
+      border: 1px dashed #e4b3c8;
+      padding: 16px 16px 14px;
+      color: var(--text-dark);
+      box-shadow: 0 12px 28px rgba(151, 124, 155, 0.35);
+    }
+    .step-number {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--pink), var(--navy-soft));
+      color: #fff;
+      font-size: 0.82rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+    .step h3 { font-size: 0.95rem; margin-bottom: 6px; color: var(--navy); }
+    .step p { font-size: 0.8rem; color: var(--text-muted); }
+
+    /* Contact */
+
+    .contact-shell {
+      background: linear-gradient(135deg, #fdf8fc 0, #eef1ff 40%, #f6eef8 100%);
+    }
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 26px;
+      align-items: flex-start;
+    }
+    .contact-details p {
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+      color: var(--text-dark);
+    }
+    .label { font-weight: 600; color: var(--navy); }
+    .contact-highlight {
+      margin-top: 12px;
+      font-size: 0.84rem;
+      color: var(--text-muted);
+    }
+    .contact-form {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 18px 18px 16px;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 16px 40px rgba(141, 115, 145, 0.45);
+    }
+    .contact-form label {
+      display: block;
+      font-size: 0.8rem;
+      margin-bottom: 4px;
+      color: var(--navy-soft);
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 9px;
+      border: 1px solid #dcccde;
+      font-family: inherit;
+      font-size: 0.85rem;
+      margin-bottom: 12px;
+      background: #fdf6fb;
+      color: var(--text-dark);
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--pink);
+      box-shadow: 0 0 0 1px rgba(214,52,103,0.45);
+    }
+    .contact-form textarea { resize: vertical; min-height: 90px; }
+
+    footer {
+      text-align: center;
+      padding: 16px 7% 26px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      background: #f7f4fa;
+      border-top: 1px solid #dcd1e2;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; padding-top: 52px; }
+      .nav-inner { padding-inline: 7%; }
+      nav ul { display: none; }
+      .nav-cta { display: inline-flex; }
+    }
+    @media (max-width: 720px) {
+      .section-shell,
+      .contact-shell { padding: 64px 7% 74px; }
+      .two-col,
+      .contact-wrap { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <a href="#top" class="nav-logo-link">
+        <img src="Logo.jpg" alt="TalentHub HR Services Logo">
+      </a>
+      <div class="nav-title-text">
+        <span class="nav-company">TALENTHUB HR SERVICES</span>
+        <span class="nav-tagline">BFSI Recruitment Partner</span>
+      </div>
+    </div>
+
+    <nav class="nav-links">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#why">Why Us</a></li>
+        <li><a href="#industries">Industries</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <a href="#contact" class="btn-ghost nav-cta">Request Talent</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="section-shell hero-shell">
+  <div class="inner hero reveal">
+    <div>
+      <div class="eyebrow">BFSI RECRUITMENT PARTNER</div>
+      <h1>Specialized hiring for banks, NBFCs & insurance leaders.</h1>
+      <p>TalentHub HR Services helps corporate BFSI organizations build high‑performing teams with pre‑screened, job‑ready professionals across India.</p>
+      <div class="hero-meta">
+        <span>BFSI‑only focus</span>
+        <span>Corporate & institutional hiring</span>
+        <span>Startup speed, enterprise discipline</span>
+      </div>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-main">
+          Request talent
+          <span class="icon">➜</span>
+        </a>
+        <a href="#services" class="btn-ghost">View services</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>Roles TalentHub typically fills</h3>
+      <p>End‑to‑end support for sales, operations and leadership hiring in the financial services ecosystem.</p>
+      <ul>
+        <li>Branch Managers, Relationship Managers & liability teams</li>
+        <li>Credit, Risk, Collections & Operations specialists</li>
+        <li>Insurance, Broking & Wealth advisory roles</li>
+        <li>Customer Support, Inside Sales & regional leadership</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section-shell alt">
+  <div class="inner reveal">
+    <h2 class="section-title">About TalentHub HR Services</h2>
+    <p class="section-sub">TalentHub (OPC) Pvt Ltd is a dedicated recruitment partner headquartered in Gachibowli, Hyderabad, focused exclusively on the Banking, Financial Services and Insurance sector.</p>
+    <div class="two-col">
+      <div class="strip">
+        <p class="text-muted">
+          As a startup, TalentHub blends lean, responsive execution with a strong understanding of BFSI roles. Every mandate is driven by clear success profiles, structured talent mapping and close collaboration with your hiring managers.
+        </p>
+      </div>
+      <div class="strip">
+        <p class="text-muted">
+          From growth‑stage fintechs to established banks and insurers, TalentHub supports hiring for branch expansion, new product launches and specialized functional teams across metro, tier‑2 and tier‑3 markets.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="section-shell">
+  <div class="inner reveal">
+    <h2 class="section-title">BFSI Recruitment Services</h2>
+    <p class="section-sub">Modular services that adapt to your hiring volumes, role criticality and geography.</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <h3>Executive & Leadership Hiring</h3>
+        <p>Targeted search for senior managers and CXO‑level talent for business, risk, operations and distribution leadership.</p>
+      </div>
+      <div class="card">
+        <h3>Permanent & Lateral Hiring</h3>
+        <p>Experienced professionals for core functions like branch banking, credit, underwriting, operations and sales management.</p>
+      </div>
+      <div class="card">
+        <h3>Bulk / Volume Hiring</h3>
+        <p>High‑volume sourcing and screening for branch staff, field sales, tele‑sales and on‑ground acquisition teams.</p>
+      </div>
+      <div class="card">
+        <h3>Entry‑level & Campus</h3>
+        <p>Structured pipelines of fresh graduates aligned to your training programs and entry‑level role expectations.</p>
+      </div>
+      <div class="card">
+        <h3>Contract & Project‑based Staffing</h3>
+        <p>Flexible staffing for campaigns, collections drives, product launches and seasonal requirements.</p>
+      </div>
+      <div class="card">
+        <h3>Recruitment Process Support</h3>
+        <p>TalentHub operates as an extension of your HR team for sourcing, screening, coordination and offer management.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why" class="section-shell alt">
+  <div class="inner reveal">
+    <h2 class="section-title">Why BFSI Clients Choose TalentHub</h2>
+    <p class="section-sub">Focused industry expertise, quality‑first shortlists and agile delivery.</p>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Domain‑focused partner</h3>
+        <p>100% focus on BFSI hiring: retail and corporate banking, NBFCs, insurance, broking, wealth and fintech.</p>
+      </div>
+      <div class="card">
+        <h3>Quality shortlists</h3>
+        <p>Profiles are screened on skills, tenure, communication and cultural compatibility before sharing with your team.</p>
+      </div>
+      <div class="card">
+        <h3>Startup speed & agility</h3>
+        <p>Lean structure, direct communication and quick turnaround on mandates, interviews and feedback loops.</p>
+      </div>
+      <div class="card">
+        <h3>Pan‑India reach</h3>
+        <p>Support for hiring in metros as well as fast‑growing tier‑2 and tier‑3 locations aligned to your expansion plans.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES & ROLES -->
+<section id="industries" class="section-shell">
+  <div class="inner reveal">
+    <h2 class="section-title">Industries & Roles Served</h2>
+    <p class="section-sub">Coverage across the BFSI value chain and adjacent financial services domains.</p>
+    <div class="two-col">
+      <div>
+        <h3 style="font-size:1rem; margin-bottom:8px; color:var(--navy);">Industries</h3>
+        <div class="tag-list">
+          <span class="tag">Private & Public Sector Banks</span>
+          <span class="tag">Small Finance & Payments Banks</span>
+          <span class="tag">NBFCs & Microfinance</span>
+          <span class="tag">Life & General Insurance</span>
+          <span class="tag">Health Insurance</span>
+          <span class="tag">Broking & Wealth Management</span>
+          <span class="tag">Fintech & Payments</span>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-size:1rem; margin-bottom:8px; color:var(--navy);">Typical roles</h3>
+        <div class="tag-list">
+          <span class="tag">Branch Managers & RMs</span>
+          <span class="tag">Sales & Business Development</span>
+          <span class="tag">Relationship & Portfolio Managers</span>
+          <span class="tag">Credit, Risk & Collections</span>
+          <span class="tag">Operations & Back Office</span>
+          <span class="tag">Customer Support & Contact Centre</span>
+          <span class="tag">Regional / Zonal Leadership</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process" class="section-shell alt">
+  <div class="inner reveal">
+    <h2 class="section-title">Our 4‑Step Hiring Process</h2>
+    <p class="section-sub">Clear, structured communication with both your stakeholders and candidates at every stage.</p>
+    <div class="process-grid">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Role discovery & success profile</h3>
+        <p>Deep dive into mandate, target companies, compensation, timelines and performance expectations.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Sourcing & screening</h3>
+        <p>Multi‑channel sourcing, tele‑screening and validation of experience, skills, stability and interest.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Interview orchestration</h3>
+        <p>Scheduling, feedback capture and communication to reduce drop‑offs and shorten hiring cycles.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">4</div>
+        <h3>Offer & joining support</h3>
+        <p>Offer negotiation support, notice‑period engagement and replacements as per agreed terms.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<!-- CONTACT -->
+<!-- CONTACT -->
+<section id="contact" class="section-shell contact-shell">
+  <div class="inner reveal">
+    <h2 class="section-title">Contact TalentHub</h2>
+    <p class="section-sub">Fill the form and your email app will open with a ready‑to‑send message.</p>
+    <div class="contact-wrap">
+      <div class="contact-details">
+        <p><span class="label">Company:</span> TALENTHUB (OPC) PVT LTD</p>
+        <p><span class="label">Address:</span> 60/8/A &amp; B, 3rd Floor, KNR Square, Opp. “The Platina”, Gachibowli, Kondapur, Hyderabad – 500032</p>
+        <p><span class="label">Phone:</span> <a href="tel:+917396235285">+91 7396235285</a></p>
+        <p><span class="label">Email:</span> <a href="mailto:talenthub.hrservices0@gmail.com">talenthub.hrservices0@gmail.com</a></p>
+        <p class="contact-highlight">
+          After you submit, your mail client opens with all details pre‑filled. Just review and press send.
+        </p>
+      </div>
+
+      <div class="contact-form">
+        <form id="mailtoForm">
+          <label for="name">Your name</label>
+          <input id="name" type="text" placeholder="Your name" required />
+
+          <label for="company">Company name</label>
+          <input id="company" type="text" placeholder="Company name" required />
+
+          <label for="email">Your email</label>
+          <input id="email" type="email" placeholder="you@company.com" required />
+
+          <label for="role">Roles & locations</label>
+          <input id="role" type="text" placeholder="Example: 5 RMs in Hyderabad & Chennai" required />
+
+          <label for="message">Additional details</label>
+          <textarea id="message" placeholder="Experience range, CTC, joining timeline, any notes"></textarea>
+
+          <button type="submit" class="btn-main" style="width:100%; justify-content:center; margin-top:6px;">
+            Open email to send
+            <span class="icon">✉</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // existing year + reveal JS can stay as it is above this script
+
+  // Mailto builder
+  (function () {
+    const form = document.getElementById("mailtoForm");
+    if (!form) return;
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const company = document.getElementById("company").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const role = document.getElementById("role").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      const to = "talenthub.hrservices0@gmail.com";
+      const subject = `Hiring requirement - ${company || "BFSI client"}`;
+
+      const bodyLines = [
+        "Dear TalentHub Team,",
+        "",
+        "We would like to discuss our BFSI hiring requirements.",
+        "",
+        "Company name: " + company,
+        "Contact person: " + name,
+        "Email: " + email,
+        "Roles & locations: " + role,
+        "",
+        "Additional details:",
+        message || "-",
+        "",
+        "Kindly reach out to us to take this forward.",
+        "",
+        "Thanks and regards,",
+        name
+      ];
+
+      const body = encodeURIComponent(bodyLines.join("\n"));
+      const mailtoLink = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${body}`;
+
+      window.location.href = mailtoLink;  // opens default mail app with composed email
+    });
+  })();
+</script>
+
+
+
+<footer>
+  © <span id="year"></span> TalentHub HR Services. All rights reserved.
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  const reveals = document.querySelectorAll(".reveal");
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
