@@ -543,7 +543,37 @@ header {
       .contact-shell { padding: 64px 7% 74px; }
       .two-col,
       .contact-wrap { grid-template-columns: 1fr; }
+
+
     }
+    .client-single {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.client-card {
+  padding: 24px 32px;
+  border-radius: 18px;
+}
+
+/* increase logo size */
+.client-card img {
+  max-width: 300px;    /* you can try 280–300 if needed */
+  max-height: 80px;
+  object-fit: contain;
+  display: block;
+}
+
+/* optional subtle hover on the CARD, not on the logo */
+.client-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 24px 60px rgba(120, 96, 135, 0.45);
+  transition: transform 0.8s ease, box-shadow 0.8s ease;
+}
+
+
   </style>
 </head>
 <body>
@@ -753,9 +783,25 @@ header {
     </div>
   </div>
 </section>
+<!-- CLIENT -->
+<section id="client" class="section-shell">
+  <div class="inner reveal">
+    <h2 class="section-title">Our Client</h2>
+    <p class="section-sub">
+      BFSI organizations that partner with TALENTHUB HR SERVICES for recruitment and staffing solutions.
+    </p>
 
-<!-- CONTACT -->
-<!-- CONTACT -->
+    <div class="client-single"  >
+      <div class="client-card" >
+        <a href="https://www.motilaloswalgroup.com/" target="_blank">
+          <img src="motilal.png"  alt="motilal logo">
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <!-- CONTACT -->
 <section id="contact" class="section-shell contact-shell">
   <div class="inner reveal">
