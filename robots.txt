@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.talenthubhrservices.com/sitemap.xml
+Sitemap: https://talenthubhrservices.com/sitemap.xml
