@@ -254,6 +254,19 @@ header {
   width: 100%;
 }
 
+.header-ctas {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-left: auto;
+}
+.header-ctas .btn-main,
+.header-ctas .btn-ghost {
+  padding: 8px 15px;
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+.header-ctas .btn-main { box-shadow: 0 6px 16px rgba(9, 16, 43, 0.2); }
 /* Existing ghost button still used for small CTA */
 
 .nav-cta {
@@ -539,6 +552,8 @@ header {
     @media (max-width: 720px) {
       .section-shell,
       .contact-shell { padding: 64px 7% 74px; }
+      .nav-inner { flex-wrap: wrap; }
+      .header-ctas { width: 100%; justify-content: flex-end; margin: 0 0 6px; }
       .two-col,
       .contact-wrap { grid-template-columns: 1fr; }
 
@@ -600,7 +615,10 @@ header {
       </ul>
     </nav>
 
-    <a href="#contact" class="btn-ghost nav-cta">Request Talent</a>
+    <div class="header-ctas" aria-label="Choose a TalentHub service">
+      <a href="#contact" class="btn-ghost">For Companies</a>
+      <a href="./recruiter-portal.html" class="btn-main">For Recruiters</a>
+    </div>
   </div>
 </header>
 
@@ -618,9 +636,10 @@ header {
       </div>
       <div class="hero-actions">
         <a href="#contact" class="btn-main">
-          Request talent
+          For Companies
           <span class="icon">➜</span>
         </a>
+        <a href="./recruiter-portal.html" class="btn-ghost">For Recruiters</a>
         <a href="#services" class="btn-ghost">View services</a>
       </div>
     </div>
@@ -938,3 +957,4 @@ header {
 </script>
 </body>
 </html>
+
